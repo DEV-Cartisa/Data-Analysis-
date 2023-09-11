@@ -1,0 +1,118 @@
+import pandas as pd
+df = pd.read_csv('words.csv', index_col='Word')
+df.head()
+Char Count	Value
+Word		
+aa	2	2
+aah	3	10
+aahed	5	19
+aahing	6	40
+aahs	4	29
+Activities
+How many elements does this dataframe have?
+df.shape
+(172821, 2)
+df.info
+<bound method DataFrame.info of            Char Count  Value
+Word                        
+aa                  2      2
+aah                 3     10
+aahed               5     19
+aahing              6     40
+aahs                4     29
+...               ...    ...
+zymotic             7    111
+zymurgies           9    143
+zymurgy             7    135
+zyzzyva             7    151
+zyzzyvas            8    170
+
+[172821 rows x 2 columns]>
+What is the value of the word microspectrophotometries?
+df.loc['microspectrophotometries']
+Char Count     24
+Value         317
+Name: microspectrophotometries, dtype: int64
+What is the highest possible value of a word?
+df.max()
+Char Count     28
+Value         319
+dtype: int64
+df.describe()
+Char Count	Value
+count	172821.000000	172821.000000
+mean	9.087628	107.754179
+std	2.818285	39.317452
+min	2.000000	2.000000
+25%	7.000000	80.000000
+50%	9.000000	103.000000
+75%	11.000000	131.000000
+max	28.000000	319.000000
+Which of the following words have a Char Count of 7 and a Value of 87?
+​
+What is the highest possible length of a word?
+df.describe()
+Char Count	Value
+count	172821.000000	172821.000000
+mean	9.087628	107.754179
+std	2.818285	39.317452
+min	2.000000	2.000000
+25%	7.000000	80.000000
+50%	9.000000	103.000000
+75%	11.000000	131.000000
+max	28.000000	319.000000
+What is the word with the value of 319?
+df.loc[df['Value'] == 319] #conditional selection
+Char Count	Value
+Word		
+reinstitutionalizations	23	319
+df.sort_values(by=['Value'], ascending=False)
+Char Count	Value
+Word		
+reinstitutionalizations	23	319
+microspectrophotometries	24	317
+microspectrophotometry	22	309
+microspectrophotometers	23	308
+immunoelectrophoretically	25	307
+...	...	...
+aba	3	4
+baa	3	4
+ab	2	3
+ba	2	3
+aa	2	2
+172821 rows × 2 columns
+
+What is the most common value?
+df['Value'].mode()
+0    93
+Name: Value, dtype: int64
+df['Value'].value_counts().head()
+Value
+93     1965
+100    1921
+95     1915
+99     1907
+92     1902
+Name: count, dtype: int64
+What is the shortest word with value 274?
+df.loc[df['Value'] == 274].sort_values(by='Char Count')
+df.loc[df['Value'] == 274].sort_values(by='Char Count')
+Char Count	Value
+Word		
+overprotectivenesses	20	274
+countercountermeasure	21	274
+psychophysiologically	21	274
+Create a column Ratio which represents the 'Value Ratio' of a word
+​
+What is the maximum value of Ratio?
+​
+What word is the one with the highest Ratio?
+​
+How many words have a Ratio of 10?
+​
+What is the maximum Value of all the words with a Ratio of 10?
+​
+Of those words with a Value of 260, what is the lowest Char Count found?
+​
+Based on the previous task, what word is it?
+​
